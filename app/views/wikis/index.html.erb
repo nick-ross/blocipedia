@@ -1,4 +1,10 @@
 <h1>All Wikis</h1>
+
+<div>
+   <%= link_to "New Wiki", new_wiki_path %>
+</div>
+
+
 <% @wikis.each do |wiki| %>
   <div class="media">
     <div class="media-body">
