@@ -1,7 +1,11 @@
 <h1>All Wikis</h1>
 
 <div>
-   <%= link_to "New Wiki", new_wiki_path %>
+  <% if signed_in? %>
+   <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-mini'%>
+  <% else %>
+  <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>
+  <% end %>
 </div>
 
 

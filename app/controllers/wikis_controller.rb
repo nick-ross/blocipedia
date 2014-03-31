@@ -12,6 +12,7 @@ class WikisController < ApplicationController
   end
 
   def create
+    authorize! :create, @wiki, message: "You need to be signed up to do that."
     @wiki = current_user.wikis.build(params[:wiki])
     if @wiki.save
       flash[:notice] = "Wiki was saved."
