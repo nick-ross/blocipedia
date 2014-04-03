@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'figaro'
 gem 'cancan'
+gem 'redcarpet'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
