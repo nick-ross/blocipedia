@@ -1,7 +1,7 @@
 class Wiki < ActiveRecord::Base
   attr_accessible :body, :title, :user
-  belongs_to :user
-  belongs_to :collaborator
+  has_many :collaborations
+  has_many :users, through: :collaborations
 
   default_scope order('created_at DESC')
 end
