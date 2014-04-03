@@ -43,7 +43,7 @@
                   <%= label_tag 'user_ids[]', user.email %>
                 </td>
                 <td>
-                  <%= check_box_tag 'user_ids[]', user.id %>
+                  <%= check_box_tag 'user_ids[]', user.id, @wiki.collaborations.include?(user) %>
                 </td>
               </tr>
               <% end %>
