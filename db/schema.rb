@@ -11,24 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140403180509) do
-
-  create_table "collaborations", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "wiki_id",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "collaborations", ["user_id"], :name => "index_collaborations_on_user_id"
-  add_index "collaborations", ["wiki_id"], :name => "index_collaborations_on_wiki_id"
-
-  create_table "collaborators", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "wiki_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20140328225104) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -42,10 +25,6 @@ ActiveRecord::Schema.define(:version => 20140403180509) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.string   "role",                   :default => "member"
