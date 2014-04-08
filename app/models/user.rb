@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_many :collaborations
   has_many :wiki_collaborations, through: :collaborations, source: :wiki
 
-  before_create :set_member
 
   ROLES = %w[member premium]
   def role?(base_role)
@@ -21,5 +20,6 @@ class User < ActiveRecord::Base
   def self.all_but(user)
     where.not(id: user.id)
   end
+
 
 end

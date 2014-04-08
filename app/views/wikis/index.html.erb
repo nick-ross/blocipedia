@@ -2,6 +2,11 @@
 
 <div>
   <% if signed_in? %>
+
+<div>
+  <%= link_to "Upgrade Account", new_subscription_path, class: 'btn btn-primary btn-mini' %>
+</div>
+
    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-mini'%>
   <% else %>
   <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>

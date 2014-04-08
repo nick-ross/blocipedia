@@ -1,7 +1,12 @@
 Blocipedia::Application.routes.draw do
   
+  get "subscriptions/new"
+
+  get "subscriptions/create"
+
   devise_for :users
   resources :wikis
+  resources :subscriptions
 
   match "about" => 'welcome#about', via: :get
 
