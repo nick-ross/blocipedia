@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :wikis
   has_many :collaborations
   has_many :wiki_collaborations, through: :collaborations, source: :wiki
-  has_one :subscription
+  has_one :subscription, dependent: :destroy
 
   ROLES = %w[member premium]
   def role?(base_role)

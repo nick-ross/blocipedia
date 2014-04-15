@@ -9,10 +9,10 @@ class Ability
         can :manage, Wiki, :user_id => user.id
     end
 
-    if user.role? :premium_member
+    if user.role? :premium
         can :read, Wiki
-        can :manage, Wiki, :collaborators => {:user_id => user.id}
-        can :manage, Collaborator
+        can :manage, Wiki, :collaborations => {:user_id => user.id}
+        can :manage, Collaboration
     end
 
     if user.role? :admin
