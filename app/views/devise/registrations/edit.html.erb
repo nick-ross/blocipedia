@@ -1,48 +1,62 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
   <div>
-    <%= f.label :name, class: 'control-label'  %>
-    <%= f.text_field :name, :autocomplete => "off" %>
-  </div>  
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <div class="container-left">
+      <div class="panel">
+        <h3>Edit <%= resource_name.to_s.humanize %></h3>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <div>
+            <%= f.label :name, class: 'control-label'  %>
+            <%= f.text_field :name, :autocomplete => "off" %>
+          </div>  
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+          <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, :autocomplete => "off" %></div>
+          <div><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Update", class: 'btn btn-info btn-default' %></div>
-<% end %>
-<br>
-<% if (current_user.role? :member) %>
-  <h4>You are currently a <em>FREE<em> member.</h4>
-  <%= link_to "Upgrade Account", new_subscription_path, class: 'btn btn-primary btn-default' %>
-<% else (current_user.role? :premium)%> 
-    <h4> You are currently a <em>PREMIUM<em> member.</h4>
-  <%= form_tag @user.subscription, method: :delete do %>
-  <%= submit_tag 'Cancel Subscription', class: 'btn btn-warning btn-default' %>
-  <% end %>
-<% end %>
-<br><br><br>
-<h4>Cancel my account</h4>
+          <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, :autocomplete => "off" %></div>
 
-<p>Unhappy?</p>
-<% if (current_user.role? :member) %>
-  <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger btn-default', :data => { :confirm => "Are you sure?" }, :method => :delete %>
-<% else (current_user.role? :premium)%>
-  <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger btn-default', :data => { :confirm => "Are you sure?" }, :method => :delete %>
-<% end %>
+          <div><%= f.submit "Update", class: 'btn btn-info btn-default' %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">  
+    <div class="container-right">
+      <div class="panel panel-right-top">
+      <h3>Edit Account</h3>
+      </div>
+      <div class="panel panel-right">
+        <% if (current_user.role? :member) %>
+          <h4>You are currently a<br>FREE member.</h4>
+          <%= link_to "Upgrade Account", new_subscription_path, class: 'btn btn-primary btn-default' %>
+        <% else (current_user.role? :premium)%> 
+            <h4> You are currently a<br><em>PREMIUM</em> member.</h4>
+          <%= form_tag @user.subscription, method: :delete do %>
+          <%= submit_tag 'Cancel Subscription', class: 'btn btn-warning btn-default' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="panel panel-right">
+        <h4>Cancel my account</h4>
 
-
-<%= link_to "Back", :back %>
+        <p>Unhappy?</p>
+        <% if (current_user.role? :member) %>
+          <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger btn-default', :data => { :confirm => "Are you sure?" }, :method => :delete %>
+        <% else (current_user.role? :premium)%>
+          <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger btn-default', :data => { :confirm => "Are you sure?" }, :method => :delete %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

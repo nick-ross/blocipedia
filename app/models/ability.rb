@@ -6,19 +6,22 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     if user.role? :member
-        can :manage, Wiki, :user_id => user.id
+        can :manage, Wiki, :user_id => user.id, :private => false
     end
 
     if user.role? :premium
-        can :read, Wiki
+        can :manage, Wiki, :user_id => user.id
         can :manage, Wiki, :collaborations => {:user_id => user.id}
         can :manage, Collaboration
+
     end
 
     if user.role? :admin
         can :manage, :all
     end
     
+    can :read, Wiki, private: false
+
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

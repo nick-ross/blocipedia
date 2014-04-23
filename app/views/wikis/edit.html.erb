@@ -1,40 +1,51 @@
-<h1>Edit Wiki</h1>
-<div class="row">
-  <div class="span12">
-    <%= form_for @wiki, html: { class: 'form-horizontal' } do |f| %>
-      <div class="control-group">
-        <%= f.label :title, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :title %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Edit Wiki</h3></div>
+      <div class="panel-body">
+        <%= form_for @wiki, html: { class: 'form' } do |f| %>
+        <div class="control-group">
+          <%= f.label :title, class: 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :title %>
+          </div>
         </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :body, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_area :body, rows: 10 %>
+        <div class="control-group">
+          <%= f.label :body, class: 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :body, rows: 10 %>
+          </div>
         </div>
-      </div>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit "Save", class: 'btn' %>
+        <% if (current_user.role? :premium) %>
+        <div class="control-group">
+          <%= f.label :private, class: 'control-label' %>
+          <div class="controls"> 
+            <%= f.check_box :private %>
+          </div>
         </div>
+        <% end %>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Save", class: 'btn' %>
+          </div>
+        </div>
+        <% end %>
       </div>
-    <% end %>
   </div>
-  <div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>ADD COLLABORATORS</h3></div>
+      <div class="panel-body">
       <%= form_for @wiki do |f| %>
       <table>
-          <h5>Add collaborators</h5>
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Give Access</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @users.each do |user| %>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Give Access</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
               <tr>
                 <td>
                   <%= label_tag :user_name, user.name %>
@@ -46,11 +57,13 @@
                   <%= check_box_tag 'wiki[user_ids][]', user.id, @wiki.users.include?(user) %>
                 </td>
               </tr>
-              <% end %>
-            </tbody>
-          </table>
+             <% end %>
+          </tbody>
+        </table>
       </table>
       <%= f.submit "Save Collaborators", class: 'btn btn-primary' %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+

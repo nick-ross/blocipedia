@@ -1,13 +1,105 @@
 @import "bootstrap";
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700|Open+Sans+Condensed:700);
+
+//=================
+// general styling
+//=================
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family: 'Open Sans';
+}
+
+p, a {
+  font-family: 'Open Sans Condensed';
+}
+
+body {
+  font-family: 'Open Sans Condensed';
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+//==================
+// nav-tabs styling
+//==================
+
+.nav {
+  margin: 0px 10% 0px 10%;
+}
+
+.nav li a {
+  color: #ffffff;
+}
+.nav li a:hover {
+  color: #666666;
+}
+.pull-right.user-info {
+  color: #ffffff;
+}
+.pull-right.user-info a {
+  color: #ffffff;
+}
+.nav-tabs {
+  border-bottom: 0px;
+}
+
 .user-info {
   margin-top: 9px;
 }
 
-.nav {
-  margin-top: 5px;
+//===============
+// panel styling
+//===============
+
+.panel {
+  margin: 0px 10% 80px 10%;
 }
 
+.panel-body {
+  background-color: #ECF1EF;
+  margin: 10px 0px 30px 0px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid  #d1d1d1;
+  box-shadow: 10px 10px 12px #666666;
+}
+.panel.panel-right {
+  border-top: 1px solid #d1d1d1;
+  margin: 10px 30px 0px 30px;
+  padding: 20px 10px 20px 10px;
+
+}
+.panel.panel-right-top {
+  margin-bottom: 20px;
+}
+.panel-content{
+  border: 1px solid #d1d1d1;
+  margin: 20px 0px;
+  padding: 30px;
+}
+
+//================
+// container styles
+//================
+
+.container {
+  background-color: #ffffff;
+}
+.container-left {
+  float: left;
+  width: 25%;
+  margin: 50px 50px 50px 20%;
+  border: 1px solid #d1d1d1;
+}
+.container-right {
+  float: right;
+  width: 25%;
+  margin: 50px 20% 50px 50px;
+  border: 1px solid #d1d1d1;
+}
 
 //  =========
 //  = Forms =
@@ -15,8 +107,4 @@
 
 textarea, input {
   width: 80%;
-}
-
-form#new_wiki {
-  margin-top: 2em;
 }

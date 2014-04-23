@@ -1,21 +1,23 @@
-<h1>All Wikis</h1>
+<div class="container">
+  <h3>All Wikis</h3>
 
-<div>
-  <% if signed_in? %>
+  <div>
+    <% if signed_in? %>
 
-   <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-mini'%>
-  <% else %>
-  <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>
+     <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-mini'%>
+    <% else %>
+    <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>
+    <% end %>
+  </div>
+
+
+  <% @wikis.each do |wiki| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to wiki.title, wiki %>
+        </h4>
+      </div>
+    </div>
   <% end %>
 </div>
-
-
-<% @wikis.each do |wiki| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to wiki.title, wiki %>
-      </h4>
-    </div>
-  </div>
-<% end %>

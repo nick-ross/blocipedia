@@ -1,29 +1,36 @@
-<h1>New Wiki</h1>
-
-<div class="row">
-  <% if signed_in? %>
-    <div class="span12">
-      <%= form_for @wiki, html: { class: 'form-horizontal' } do |f| %>
-        <div class="control-group">
-          <%= f.label :title, class: 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :title %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>New Wiki</h3></div>
+      <% if signed_in? %>
+        <div class="panel-body">
+          <%= form_for @wiki, html: { class: 'form' } do |f| %>
+            <div class="control-group">
+              <%= f.label :title, class: 'control-label' %>
+              <div class="controls">
+                <%= f.text_field :title %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :body, class: 'control-label' %>
+              <div class="controls">
+                <%= f.text_area :body, rows: 8 %>
+              </div>
+            </div>
+            <% if (current_user.role? :premium) %>
+            <div class="control-group">
+              <%= f.label :private, class: 'checkbox inline control-label', style: 'padding-left: 0px' %>
+                <%= f.check_box :private, class: 'checkbox' %>
+            </div>
+            <% end %> 
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit "Save", class: 'btn' %>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :body, class: 'control-label' %>
-          <div class="controls">
-            <%= f.text_area :body, rows: 8 %>
-          </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <%= f.submit "Save", class: 'btn' %>
-          </div>
-        </div>
-      </div>
+          <% end %>
+        <% else %>
+      <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>
       <% end %>
-    <% else %>
-  <p><%= link_to "Sign Up", new_user_registration_path %> to create your own wikis!</p>
-  <% end %>
+  </div>
 </div>
