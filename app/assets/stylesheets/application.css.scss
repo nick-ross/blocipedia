@@ -31,16 +31,22 @@ body {
 }
 
 .nav li a {
-  color: #ffffff;
+  color: #c1c1c1;
 }
 .nav li a:hover {
-  color: #666666;
+  color: #888888;
+  background: none;
+  text-decoration: none;
+  border: none;
 }
 .pull-right.user-info {
-  color: #ffffff;
+  color: #c1c1c1;
 }
 .pull-right.user-info a {
-  color: #ffffff;
+  color: #c1c1c1;
+}
+.pull-right.user-info a:hover {
+  color: #888888;
 }
 .nav-tabs {
   border-bottom: 0px;
