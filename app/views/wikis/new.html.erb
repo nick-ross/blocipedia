@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container.fluid">
   <div class="panel panel-default">
     <div class="panel-heading"><h3>New Wiki</h3></div>
       <% if signed_in? %>
@@ -21,7 +21,7 @@
               <%= f.label :private, class: 'checkbox inline control-label', style: 'padding-left: 0px' %>
                 <%= f.check_box :private, class: 'checkbox' %>
             </div>
-            <% end %> 
+            <% end %>
             <div class="control-group">
               <div class="controls">
                 <%= f.submit "Save", class: 'btn' %>

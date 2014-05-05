@@ -5,17 +5,16 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
   <%= csrf_meta_tags %>
-  <%= tag :meta, :name => "stripe-key", 
+  <%= tag :meta, :name => "stripe-key",
     :content => STRIPE_PUBLIC_KEY %>
 </head>
 <body>
-  <div class="container">
-    <div class="section black">
+  <div class="container.fluid">
+    <div>
       <ul class="nav nav-tabs">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
-
-          <div class="pull-right user-info">
+        <div class="pull-right user-info">
             <% if current_user %>
               Hello <%= link_to (current_user.name || current_user.email), current_user %>!
             <%= link_to edit_user_registration_path, class: 'btn btn-mini' do %>
@@ -25,13 +24,13 @@
               <i class="icon-share-alt"> </i>
             <% end %>
             <% else %>
-               <%= link_to "Sign In", new_user_session_path %> or 
+               <%= link_to "Sign In", new_user_session_path %> or
                <%= link_to "Sign Up", new_user_registration_path %>
             <% end %>
-          </div>
-
+        </div>
       </ul>
-
+    </div>
+    <div class="panel">
         <% if flash[:notice] %>
           <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -48,7 +47,6 @@
             <%= flash[:alert] %>
           </div>
         <% end %>
-      </div>
     </div>
     <div class="container.fluid">
 

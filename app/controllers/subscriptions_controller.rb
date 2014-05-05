@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     @subscription = current_user.build_subscription(params[:subscription])
     if @subscription.save_with_payment
       current_user.update_attribute(:role, 'premium')
-      redirect_to root_path, :notice => "Thank you for 
+      redirect_to root_path, :notice => "Thank you for
         subscribing!"
     else
       render :new
@@ -26,5 +26,5 @@ class SubscriptionsController < ApplicationController
       render :edit
     end
 
-  end  
+  end
 end

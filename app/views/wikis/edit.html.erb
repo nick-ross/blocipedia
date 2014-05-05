@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container.fluid">
   <div class="panel panel-default">
     <div class="panel-heading"><h3>Edit Wiki</h3></div>
       <div class="panel-body">
@@ -18,7 +18,7 @@
         <% if (current_user.role? :premium) %>
         <div class="control-group">
           <%= f.label :private, class: 'control-label' %>
-          <div class="controls"> 
+          <div class="controls">
             <%= f.check_box :private %>
           </div>
         </div>
