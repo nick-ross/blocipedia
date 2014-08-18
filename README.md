@@ -6,3 +6,4 @@ Blocipedia is a wiki collaboration app that allows users to contribute to wikis 
 **Features:** 
 - user authentication
 - integration with Stripe payment processing
+- Markdown based wikis
